@@ -1,0 +1,17 @@
+Fixes for platforms without at funcs and without ACL support
+
+--- include/atalk/acl.h
++++ include/atalk/acl.h
+@@ -19,10 +19,11 @@
+ #include "config.h"
+ #endif /* HAVE_CONFIG_H */
+ 
++#define O_IGNORE (O_NOFOLLOW << 2)
++
+ #ifdef HAVE_ACLS
+ 
+ #define O_NETATALK_ACL (O_NOFOLLOW << 1)
+-#define O_IGNORE (O_NOFOLLOW << 2)
+ 
+ #ifdef HAVE_SOLARIS_ACLS
+ #include <sys/acl.h>

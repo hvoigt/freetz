@@ -1,24 +1,26 @@
 #!/bin/sh
 
 DAEMON=netatalk
-DAEMON_LONG_NAME="Netatalk-cnid_metad"
-DAEMON_BIN=cnid_metad
+DAEMON_LONG_NAME="Netatalk"
+DAEMON_BIN=netatalk
+DAEMON_CONFIG=/mod/etc/netatalk/afpd.conf
 . /etc/init.d/modlibrc
+
+#TODO: Das hier auf 3.0 umstellen
 
 start() {
 	modlib_startdaemon $DAEMON_BIN \
-	  -l $NETATALK_LOG_LEVEL \
-	  -s /sbin/cnid_dbd
-	pidof cnid_metad >/var/run/$DAEMON_BIN.pid
+	pidof netatalk >/var/run/$DAEMON_BIN.pid
 }
 
 case $1 in
 	""|load)
-		modreg daemon -h -n netatalk-cnid_metad -r rc.netatalk.$DAEMON_BIN -p netatalk cnid_metad
+		mkdir -p /mod/etc/netatalk
+		modreg daemon -h -n netatalk-afpd -r rc.netatalk.$DAEMON_BIN -p netatalk afpd
 		modlib_start $NETATALK_ENABLED
 		;;
 	unload)
-		modunreg daemon netatalk cnid_metad
+		modunreg daemon netatalk afpd
 		modlib_stop
 		;;
 	start)
