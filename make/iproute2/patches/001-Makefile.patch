@@ -1,7 +1,7 @@
---- Makefile.orig      2005-07-09 00:08:47.000000000 +0200
-+++ Makefile   2010-06-20 00:40:30.000000000 +0200
-@@ -10,7 +10,7 @@
- DEFINES= -DRESOLVE_HOSTNAMES
+--- Makefile.orig
++++ Makefile
+@@ -18,7 +18,7 @@ DEFINES+= -DNO_SHARED_LIBS
+ endif
  
  #options if you have a bind>=4.9.4 libresolv (or, maybe, glibc)
 -LDLIBS=-lresolv
@@ -9,11 +9,11 @@
  ADDLIB=
  
  #options for decnet
-@@ -27,7 +27,7 @@
+@@ -35,7 +35,7 @@ YACCFLAGS = -d -t -v
  
  LDLIBS += -L../lib -lnetlink -lutil
  
--SUBDIRS=lib ip tc misc netem
+-SUBDIRS=lib ip tc misc netem genl
 +SUBDIRS=lib ip tc
  
  LIBNETLINK=../lib/libnetlink.a ../lib/libutil.a
