@@ -544,14 +544,6 @@ config FREETZ_MODULE_bnep
 	select FREETZ_MODULE_l2cap
 	default n
 
-config FREETZ_MODULE_cls_u32
-	bool "cls_u32.ko"
-	default n
-	help
-		The u32 filter allows you to match on any bit field within a
-		packet, so it is in some ways the most powerful filter provided
-		by the Linux traffic control engine.
-
 config FREETZ_MODULE_ipv6
 	bool "ipv6.ko"
 	depends on FREETZ_TARGET_IPV6_SUPPORT && ! FREETZ_AVM_HAS_IPV6
@@ -621,6 +613,28 @@ config FREETZ_MODULE_sch_tbf
 		CBQ scheduling algorithm.
 		See the top of <file:net/sched/sch_tbf.c> for a description of the
 		TBF algorithm.
+
+config FREETZ_MODULE_sch_prio
+	bool "sch_prio.ko"
+	default n
+	help
+		Multi Band Priority Queueing (PRIO) is an n-band priority queue
+		packet scheduler.
+
+config FREETZ_MODULE_cls_u32
+        bool "cls_u32.ko"
+        default n
+        help
+                The u32 filter allows you to match on any bit field within a
+                packet, so it is in some ways the most powerful filter provided
+                by the Linux traffic control engine.
+
+config FREETZ_MODULE_cls_fw
+        bool "cls_fw.ko"
+        default n
+        help
+                The "Firewall based classifier" allows you to classify outgoing
+                packets according to firewall criteria you specified.
 
 endmenu
 
