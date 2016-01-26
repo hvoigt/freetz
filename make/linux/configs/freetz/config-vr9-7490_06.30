@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.32.61
-# Sun Sep 21 08:11:41 2014
+# Tue Jan 26 15:32:36 2016
 #
 CONFIG_MIPS=y
 
@@ -656,10 +656,10 @@ CONFIG_NET_CLS_BASIC=m
 CONFIG_NET_CLS_TCINDEX=m
 # CONFIG_NET_CLS_ROUTE4 is not set
 CONFIG_NET_CLS_ROUTE=y
-# CONFIG_NET_CLS_FW is not set
+CONFIG_NET_CLS_FW=m
 CONFIG_NET_CLS_U32=m
 # CONFIG_CLS_U32_PERF is not set
-# CONFIG_CLS_U32_MARK is not set
+CONFIG_CLS_U32_MARK=y
 # CONFIG_NET_CLS_RSVP is not set
 # CONFIG_NET_CLS_RSVP6 is not set
 # CONFIG_NET_CLS_FLOW is not set
